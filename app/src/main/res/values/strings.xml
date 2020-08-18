@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">BusStopsForYBS78and94</string>
+    <string name="select_bus_route">Select Your YBS Bus Route</string>
+    <string name="btn_ok">OK</string>
+    <string name="selected_route">Selected Route</string>
+    <string name="bus_number_route">YBS 78 Route</string>
+    <string name="computer_bus_stop">Computer University</string>
+    
+    <string-array name="Route">
+        <item>YBS 78</item>
+        <item>YBS 94</item>
+    </string-array>
+
+    <!-- Geofence Error Messages -->
+    <string name="geofence_not_available">Goefence service is not available now.</string>
+    <string name="geofence_registered_too_many">Your app has registered too many Geofences.</string>
+    <string name="geofence_provided_too_many_pending_intent">You have provided too many PendingIntents to teh addGeo.
+    </string>
+    <string name="geofence_unknown_error">Geofence unknown errors.</string>
+
+    <!-- Geofence Transitions -->
+    <string name="geofence_transition_enter">Entered into geofence(s)</string>
+    <string name="geofence_transition_exit">Exited from geofence(s)</string>
+    <string name="geofence_transition_unknown">Unknown geofence transition</string>
+</resources>
