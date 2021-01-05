@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<string name="google_maps_key" translatable="false" templateMergeStrategy="preserve">
+        AIzaSyB2s9nJ38BwQ-JOB9hsZabPmxIg1PtNpJY
+    </string>-->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
+         <!--AIzaSyD0jZT6Onjoou4Cc_vYWq4pJJ0CaV-67GE-->
+        AIzaSyBZQtd2tbge1hCyR2_QYx-h64Wvzp-nAvg
+
+    </string>
+</resources>

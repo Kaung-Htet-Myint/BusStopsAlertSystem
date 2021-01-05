@@ -1,55 +1,251 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:id="@+id/rlNav"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlways"
             android:background="@color/colorPrimary">
-
-            <ImageView
-                android:id="@+id/btnBack"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:id="@+id/rlNav"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_keyboard_arrow_left_white_44dp"
-                />
+                android:background="@color/colorPrimary">
+
+                <ImageView
+                    android:id="@+id/btnBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_keyboard_arrow_left_white_44dp" />
+
+                <TextView
+                    android:id="@+id/tvBusNumberRoute"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bus_number_route"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:textSize="@dimen/text_regular_3x"
+                    android:textColor="@color/icons"/>
+
+                <ImageButton
+                    android:id="@+id/btn_map"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_baseline_map_white_24"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignTop="@id/tvBusNumberRoute"
+                    android:layout_marginEnd="@dimen/margin_medium_2"/>
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/app_bar">
+
+        <!--<androidx.cardview.widget.CardView
+            android:id="@+id/cvAvailableOffline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/rlAvailableOffline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivOfflineAvailable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_check_circle_green_24dp"
+                    android:layout_margin="@dimen/margin_medium"/>
+
+                <TextView
+                    android:id="@+id/tvAvailableOffline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbl_available_offline"
+                    android:layout_toEndOf="@+id/ivOfflineAvailable"
+                    android:layout_alignTop="@+id/ivOfflineAvailable"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:textColor="@color/secondary_text"/>
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>-->
+
+        <!--<include layout="@layout/content_main"/>-->
+
+        <!--<LinearLayout
+            android:id="@+id/rlStatusTitles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cvAvailableOffline"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:layout_marginBottom="@dimen/margin_medium_2"
+            android:paddingStart="@dimen/margin_xxlarge"
+            android:paddingEnd="@dimen/margin_small_n"
+            android:orientation="horizontal"
+            android:gravity="center">
 
             <TextView
-                android:id="@+id/tvBusNumberRoute"
-                android:layout_width="wrap_content"
+                android:id="@+id/tvStation"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/bus_number_route"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/margin_medium"
-                android:textSize="@dimen/text_regular_3x"
-                android:textColor="@color/icons"/>
+                android:text="@string/title_station"
+                android:textSize="@dimen/text_regular_2x"
+                android:textColor="@color/primary_text"
+                android:textStyle="bold"
+                android:layout_weight="2.5"/>
 
-        </RelativeLayout>
+            <TextView
+                android:id="@+id/tvArrive"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/title_arrive"
+                android:textSize="@dimen/text_regular_2x"
+                android:textColor="@color/primary_text"
+                android:textStyle="bold"
+                android:layout_weight="1"/>
 
-        <RelativeLayout
+            <TextView
+                android:id="@+id/tvDepart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/title_depart"
+                android:textSize="@dimen/text_regular_2x"
+                android:textColor="@color/primary_text"
+                android:textStyle="bold"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/tvHalt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/title_halt"
+                android:textSize="@dimen/text_regular_2x"
+                android:textColor="@color/primary_text"
+                android:textStyle="bold"
+                android:layout_weight="1"/>
+
+        </LinearLayout>-->
+
+        <androidx.cardview.widget.CardView
             android:id="@+id/rlContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_medium"
-            android:layout_below="@+id/rlNav">
+            android:layout_marginTop="@dimen/margin_medium">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvBusStopsList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <!--<include layout="@layout/bus_stop_item_view"/>-->
-
-        </RelativeLayout>
-
+        </androidx.cardview.widget.CardView>
     </RelativeLayout>
+    </RelativeLayout>
+    <View
+        android:id="@+id/fabBGLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorTransBg"
+        android:visibility="gone" />
+    <LinearLayout
+        android:id="@+id/fabDown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/child_fab_margin"
+        android:layout_marginBottom="@dimen/standard_23"
+        android:clipToPadding="false"
+        android:gravity="center_vertical"
+        android:padding="@dimen/standard_12"
+        android:visibility="gone">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Down"
+            android:textColor="@color/icons"
+            android:textSize="@dimen/text_regular_3x"
+            android:textStyle="italic"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/ic_baseline_arrow_downward_24"
+            android:backgroundTint="@color/colorPrimary"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/fabUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/child_fab_margin"
+        android:layout_marginBottom="@dimen/standard_23"
+        android:clipToPadding="false"
+        android:gravity="center_vertical"
+        android:padding="@dimen/standard_12"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Up"
+            android:textColor="@color/icons"
+            android:textSize="@dimen/text_regular_3x"
+            android:textStyle="italic"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:tint="@android:color/white"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/ic_baseline_arrow_upward_24"
+            android:backgroundTint="@color/colorPrimary"/>
+    </LinearLayout>
+
+    <!--<LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="@dimen/fab_margin"
+        android:clipToPadding="false"
+        android:gravity="center_vertical"
+        android:padding="@dimen/standard_12">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:gravity="center_vertical"
+            app:srcCompat="@android:drawable/ic_dialog_info"
+            android:backgroundTint="@color/colorPrimary"/>
+    </LinearLayout>-->
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

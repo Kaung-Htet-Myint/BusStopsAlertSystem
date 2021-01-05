@@ -9,7 +9,8 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.busstopsforybs78and94.R
-import com.example.busstopsforybs78and94.intentservices.GeofenceTransitionsIntentService
+import com.example.busstopsforybs78and94.intentservices.GeofenceTransitionsJobIntentService
+import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.location.Geofence
 import com.google.android.gms.location.GeofenceStatusCodes
 import com.google.android.gms.location.GeofencingRequest
@@ -21,6 +22,14 @@ class GeofenceUtils(private val context: Context) {
     private val geofencingClient = LocationServices.getGeofencingClient(context)
 
     companion object {
+
+        fun getErrorString(context: Context, e: Exception): String {
+            return if (e is ApiException) {
+                getErrorString(context, e.statusCode)
+            } else {
+                context.resources.getString(R.string.geofence_unknown_error)
+            }
+        }
 
         fun getErrorString(context: Context, errorCode: Int): String {
             val resources = context.resources
@@ -54,7 +63,7 @@ class GeofenceUtils(private val context: Context) {
     }
 
     private val geofencePendingIntent: PendingIntent by lazy {
-        val intent = Intent(context, GeofenceTransitionsIntentService::class.java)
+        val intent = Intent(context, GeofenceTransitionsJobIntentService::class.java)
         PendingIntent.getService(
             context,
             0,

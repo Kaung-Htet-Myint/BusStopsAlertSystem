@@ -5,11 +5,32 @@
     <string name="selected_route">Selected Route</string>
     <string name="bus_number_route">YBS 78 Route</string>
     <string name="computer_bus_stop">Computer University</string>
-    
+    <string name="btn_bus_78_up">YBS 78 Up</string>
+    <string name="btn_bus_94_up">YBS 94 Up</string>
+
+    <string name="btn_bus_78_down">YBS 78 Down</string>
+    <string name="btn_bus_94_down">YBS 94 Down</string>
+
+    <string name="title_station">Station</string>
+    <string name="title_arrive">Arrive</string>
+    <string name="title_depart">Depart</string>
+    <string name="title_halt">Halt</string>
+
+    <string name="lbl_delay_time">15m delay</string>
+    <string name="lbl_arrive_distance">4km</string>
+
+
+    <string name="lbl_available_offline">This route is available offline!</string>
     <string-array name="Route">
         <item>YBS 78</item>
         <item>YBS 94</item>
     </string-array>
+
+    <string name="insufficient_permissions">Insufficient permissions.</string>
+    <string name="permission_rationale">Location permission is needed for core functionality</string>
+
+    <string name="geofences_added">Geofences added</string>
+    <string name="geofences_removed">Geofences removed</string>
 
     <!-- Geofence Error Messages -->
     <string name="geofence_not_available">Goefence service is not available now.</string>
@@ -17,9 +38,18 @@
     <string name="geofence_provided_too_many_pending_intent">You have provided too many PendingIntents to teh addGeo.
     </string>
     <string name="geofence_unknown_error">Geofence unknown errors.</string>
+    <string name="geofence_transition_invalid_type">
+        Geofence transition error: invalid transition type %1$d
+    </string>
 
     <!-- Geofence Transitions -->
     <string name="geofence_transition_enter">Entered into geofence(s)</string>
     <string name="geofence_transition_exit">Exited from geofence(s)</string>
     <string name="geofence_transition_unknown">Unknown geofence transition</string>
+    <string name="geofence_transition_notification_text">
+        Click notification to return to app
+    </string>
+
+    <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+
 </resources>

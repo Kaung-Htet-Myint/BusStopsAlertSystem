@@ -1,4 +1,4 @@
-package com.example.busstopsforybs78and94
+package com.example.busstopsforybs78and94.data.vos
 
 data class BusStopsVO(
 

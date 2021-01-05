@@ -1,56 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/constraint"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tv_select"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="319dp"
+        android:layout_marginEnd="111dp"
+        android:text="@string/select_bus_route"
+        android:textSize="@dimen/text_regular_2x"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_select"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/select_bus_route"
-            android:textSize="@dimen/text_regular_2x" />
+    <!--<Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_cornor"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="@string/btn_bus_94_down"
+        android:textColor="#FFFF"
+        app:layout_constraintStart_toStartOf="@+id/btnBus94Up"
+        app:layout_constraintTop_toTopOf="@+id/btnBus78Down" />
 
+    <Button
+        android:id="@+id/btnBus78Down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_cornor"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="@string/btn_bus_78_down"
+        android:textColor="#FFFF"
+        app:layout_constraintStart_toStartOf="@+id/btnBus78Up"
+        app:layout_constraintTop_toBottomOf="@+id/btnBus78Up" />
 
-        <RelativeLayout
-            android:id="@+id/rl_spinner_route"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_xxlarge"
-            android:background="@drawable/border">
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btnBus78Up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/rounded_cornor"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="@string/btn_bus_78_up"
+        android:textColor="#FFFF"
+        app:layout_constraintStart_toStartOf="@+id/tv_select"
+        app:layout_constraintTop_toBottomOf="@+id/tv_select" />
 
-           <!-- <ImageView
-                android:id="@+id/btnDownArrow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_keyboard_arrow_down_black_24dp"
-                android:layout_toEndOf="@+id/spinner"/>-->
-        </RelativeLayout>
+    <Button
+        android:id="@+id/btnBus94Up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:background="@drawable/rounded_cornor"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="@string/btn_bus_94_up"
+        android:textColor="#FFFF"
+        app:layout_constraintStart_toEndOf="@+id/btnBus78Up"
+        app:layout_constraintTop_toTopOf="@+id/btnBus78Up" />-->
 
-        <!--To add ripple effect-->
-        <Button
-            android:id="@+id/btn_ok"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_ok"
-            android:layout_marginTop="64dp"
-            android:textColor="#FFFF"
-            android:backgroundTint="@color/colorPrimary"
-            android:background="@drawable/rounded_cornor"/>
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_select"
+        app:layout_constraintStart_toStartOf="@+id/tv_select"
+        app:layout_constraintTop_toBottomOf="@+id/tv_select" />
 
-    </LinearLayout>
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

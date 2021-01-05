@@ -7,6 +7,7 @@
     <dimen name="margin_medium_2">16dp</dimen>
     <dimen name="margin_card_medium_2">12dp</dimen>
     <dimen name="margin_medium_3">20dp</dimen>
+    <dimen name="margin_medium_4">22dp</dimen>
     <dimen name="margin_large">24dp</dimen>
     <dimen name="margin_xlarge">32dp</dimen>
     <dimen name="margin_xxlarge">48dp</dimen>
@@ -30,4 +31,17 @@
     <dimen name="text_big">40sp</dimen>
     <dimen name="text_big_2x">60sp</dimen>
     <dimen name="text_big_3x">80sp</dimen>
+
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="standard_12">12dp</dimen>
+    <dimen name="standard_21">21dp</dimen>
+    <dimen name="standard_23">23dp</dimen>
+    <dimen name="child_fab_margin">45dp</dimen>
+    <dimen name="standard_45">45dp</dimen>
+    <dimen name="standard_55">55dp</dimen>
+    <dimen name="standard_75">75dp</dimen>
+    <dimen name="standard_105">105dp</dimen>
+    <dimen name="standard_120">120dp</dimen>
+    <dimen name="standard_155">155dp</dimen>
+    <dimen name="standard_165">165dp</dimen>
 </resources>
