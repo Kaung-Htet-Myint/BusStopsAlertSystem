@@ -52,4 +52,9 @@
 
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
 
+    <string name="permission_denied_explanation">
+        You need to grant location permission in order to play this game.
+    </string>
+
+    <string name="settings">Settings</string>
 </resources>

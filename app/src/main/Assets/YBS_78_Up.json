@@ -1,9 +1,9 @@
-﻿[{"No":1,"Direction":"UP","BusStop_Name":"ကွန်ပျူတာ(ဂိတ်ရင်း)","Road_Name":"အမှတ်(၄)လမ်း","Township":"ရွှေပြည်သာမြို့နယ်","Lat":16.816722,"Long":96.1301},
-    {"No":2,"Direction":"UP","BusStop_Name":"နွားခြံ","Road_Name":"အမှတ်(၄)လမ်း","Township":"ရွှေပြည်သာမြို့နယ်","Lat":16.804097,"Long":96.136791},
-    {"No":3,"Direction":"UP","BusStop_Name":"သဘာဝ","Road_Name":"အမှတ်(၄)လမ်း","Township":"ရွှေပြည်သာမြို့နယ်","Lat":16.806304,"Long":96.155194},
-    {"No":4,"Direction":"UP","BusStop_Name":"သာဓုကန်","Road_Name":"အမှတ်(၄)လမ်း","Township":"ရွှေပြည်သာမြို့နယ်","Lat":16.813547,"Long":96.169637},
+﻿[{"No":1,"Direction":"UP","BusStop_Name":"ကွန်ပျူတာ(ဂိတ်ရင်း)","Road_Name":"အမှတ်(၄)လမ်း","Township":"ရွှေပြည်သာမြို့နယ်","Lat":16.9987,"Long":96.0883},
+    {"No":2,"Direction":"UP","BusStop_Name":"နွားခြံ","Road_Name":"အမှတ်(၄)လမ်း","Township":"ရွှေပြည်သာမြို့နယ်","Lat":16.9943,"Long":96.0916},
+    {"No":3,"Direction":"UP","BusStop_Name":"သဘာဝ","Road_Name":"အမှတ်(၄)လမ်း","Township":"ရွှေပြည်သာမြို့နယ်","Lat":16.9888,"Long":96.0928},
+    {"No":4,"Direction":"UP","BusStop_Name":"သာဓုကန်","Road_Name":"အမှတ်(၄)လမ်း","Township":"ရွှေပြည်သာမြို့နယ်","Lat":16.9836,"Long":96.0933},
     {"No":5,"Direction":"UP","BusStop_Name":"ဇေယျာသီရိ","Road_Name":"အမှတ်(၄)လမ်း","Township":"ရွှေပြည်သာမြို့နယ်","Lat":16.816722,"Long":96.1301},
-    {"No":6,"Direction":"UP","BusStop_Name":"ပုည","Road_Name":"အမှတ်(၄)လမ်း","Township":"ရွှေပြည်သာမြို့နယ်","Lat":16.804097,"Long":96.136791},
+    {"No":6,"Direction":"UP","BusStop_Name":"ပုည","Road_Name":"အမှတ်(၄)လမ်း","Township":"ရွှေပြည်သာမြို့နယ်","Lat":16.9790,"Long":96.0935},
     {"No":7,"Direction":"UP","BusStop_Name":"အုတ်ဖို","Road_Name":"အမှတ်(၄)လမ်း","Township":"ရွှေပြည်သာမြို့နယ်","Lat":16.806304,"Long":96.155194},
     {"No":8,"Direction":"UP","BusStop_Name":"သံဖြူဆိုင်","Road_Name":"အမှတ်(၄)လမ်း","Township":"ရွှေပြည်သာမြို့နယ်","Lat":16.813547,"Long":96.169637},
     {"No":9,"Direction":"UP","BusStop_Name":"ရဲတပ်ရင်း(၆)","Road_Name":"အမှတ်(၄)လမ်း","Township":"ရွှေပြည်သာမြို့နယ်","Lat":16.816722,"Long":96.1301},
@@ -60,5 +60,4 @@
     {"No":60,"Direction":"UP","BusStop_Name":"ဆူးလေ(မြို့တော်ခန်းမဘေး)","Road_Name":"မဟာဗန္ဓုလလမ်း","Township":"ကျောက်တံတားမြို့နယ်","Lat":16.813547,"Long":96.169637},
     {"No":61,"Direction":"UP","BusStop_Name":"ဘူတာကြီးကုန်းထိပ်","Road_Name":"ဆူးလေဘုရားလမ်း","Township":"မင်္ဂလာတောင်ညွန့်မြို့နယ်","Lat":16.816722,"Long":96.1301},
     {"No":62,"Direction":"UP","BusStop_Name":"ဘူတာကြီး(ဂိတ်ဖျား)","Road_Name":"ကွမ်းခြံလမ်း","Township":"မင်္ဂလာတောင်ညွန့်မြို့နယ်","Lat":16.804097,"Long":96.136791}
-
 ]

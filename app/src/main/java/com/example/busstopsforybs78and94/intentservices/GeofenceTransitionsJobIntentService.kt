@@ -1,5 +1,6 @@
 package com.example.busstopsforybs78and94.intentservices
 
+import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -8,6 +9,8 @@ import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Build
+import android.os.Parcelable
+import android.os.ResultReceiver
 import android.text.TextUtils
 import android.util.Log
 import androidx.core.app.JobIntentService
@@ -15,11 +18,10 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.TaskStackBuilder
 import com.example.busstopsforybs78and94.R
 import com.example.busstopsforybs78and94.activities.BusStopsActivity
-import com.example.busstopsforybs78and94.activities.MainActivity
 import com.example.busstopsforybs78and94.utils.GeofenceUtils
 import com.google.android.gms.location.Geofence
 import com.google.android.gms.location.GeofencingEvent
-import java.util.ArrayList
+import java.util.*
 
 class GeofenceTransitionsJobIntentService : JobIntentService() {
 
@@ -42,7 +44,6 @@ class GeofenceTransitionsJobIntentService : JobIntentService() {
             )
         }
     }
-
 
     override fun onHandleWork(intent: Intent) {
         val geofencingEvent = GeofencingEvent.fromIntent(intent)
@@ -130,10 +131,11 @@ class GeofenceTransitionsJobIntentService : JobIntentService() {
                     R.drawable.ic_brightness_1_blue_20dp
                 )
             )
-            .setColor(Color.RED)
+            .setColor(Color.GREEN)
             .setContentTitle(notificationDetails)
             .setContentText(getString(R.string.geofence_transition_notification_text))
             .setContentIntent(notificationPendingIntent)
+            .build()
 
         // Set the Channel ID for Android O.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

@@ -17,8 +17,8 @@ internal object Constants {
      */
     val GEOFENCE_EXPIRATION_IN_MILLISECONDS =
         GEOFENCE_EXPIRATION_IN_HOURS * 60 * 60 * 1000
-    val GEOFENCE_RADIUS_IN_METERS = 1609f // 1 mile, 1.6 km
-
+   // val GEOFENCE_RADIUS_IN_METERS = 1609f // 1 mile, 1.6 km
+   val GEOFENCE_RADIUS_IN_METERS = 100f
     /**
      * Map for storing information about airports in the San Francisco bay area.
      */

@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity(),AdapterView.OnItemSelectedListener {
             return Intent(context, MainActivity::class.java)
         }
     }
-    var busRouteNumber = arrayOf("choose bus","Ybs 78 Up", "Ybs 78 Down", "Ybs 94 Up", "Ybs 94 Down")
+    var busRouteNumber = arrayOf("choose bus","YBS 78 Up", "YBS 78 Down", "YBS 94 Up", "YBS 94 Down")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

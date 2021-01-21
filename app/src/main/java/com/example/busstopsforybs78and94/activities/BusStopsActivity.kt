@@ -22,6 +22,7 @@ import com.example.busstopsforybs78and94.R
 import com.example.busstopsforybs78and94.Utils
 import com.example.busstopsforybs78and94.adapters.BusStopsAdapter
 import com.example.busstopsforybs78and94.intentservices.GeofenceBroadcastReceiver
+import com.example.busstopsforybs78and94.intentservices.GeofenceTransitionsJobIntentService
 import com.example.busstopsforybs78and94.mvp.presenters.BusStopsPresenter
 import com.example.busstopsforybs78and94.mvp.views.BusStopsView
 import com.example.busstopsforybs78and94.utils.GeofenceUtils
@@ -100,6 +101,10 @@ class BusStopsActivity : BaseActivity(), BusStopsView, OnCompleteListener<Void>,
         mBusStopsPresenter = ViewModelProviders.of(this).get(BusStopsPresenter::class.java)
         mBusStopsPresenter.initPresenter(this)
 
+        //Geofence Building
+        mGeofencingClient = LocationServices.getGeofencingClient(this)
+        mGeofenceList = ArrayList()
+
         //Instance of  busStopAdpater
         busStopsAdapter = BusStopsAdapter()
 
@@ -122,14 +127,15 @@ class BusStopsActivity : BaseActivity(), BusStopsView, OnCompleteListener<Void>,
 */
 
         busStops = parseJsonDataByGson()
-        //parseJsonDataByGson()
+
+        populateGeofenceList()
+
         busStopsListView(busStops)
 
         //Geofence Building
-        mGeofencingClient = LocationServices.getGeofencingClient(this)
-        mGeofenceList = ArrayList()
 
-        populateGeofenceList()
+
+        //populateGeofenceList()
         addGeofences()
 
         setUpListener()
@@ -162,6 +168,7 @@ class BusStopsActivity : BaseActivity(), BusStopsView, OnCompleteListener<Void>,
 
         if (ss.equals("YBS 78 Route Up")){
             jsonFileString = utils.getJsonDataFromAsset(this,"YBS_78_Up.json")
+            //jsonFileString = utils.getJsonDataFromAsset(this,"testing.json")
             Log.i("data", jsonFileString)
         }else if(ss.equals("YBS 78 Route Down")){
             jsonFileString = utils.getJsonDataFromAsset(this,"YBS_78_Down.json")
@@ -188,18 +195,10 @@ class BusStopsActivity : BaseActivity(), BusStopsView, OnCompleteListener<Void>,
      * Also specifies how the geofence notifications are initially triggered.
      */
     private fun getGeofencingRequest(): GeofencingRequest {
-        val builder = GeofencingRequest.Builder()
-
-        // The INITIAL_TRIGGER_ENTER flag indicates that geofencing service should trigger a
-        // GEOFENCE_TRANSITION_ENTER notification when the geofence is added and if the device
-        // is already inside that geofence.
-        builder.setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER)
-
-        // Add the geofences to be monitored by geofencing service.
-        builder.addGeofences(mGeofenceList)
-
-        // Return a GeofencingRequest.
-        return builder.build()
+        return GeofencingRequest.Builder().apply {
+            setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER)
+            addGeofences(mGeofenceList)
+        }.build()
     }
 
     private fun populateGeofenceList() {
@@ -225,7 +224,8 @@ class BusStopsActivity : BaseActivity(), BusStopsView, OnCompleteListener<Void>,
 
                     // Set the transition types of interest. Alerts are only generated for these
                     // transition. We track entry and exit transitions in this sample.
-                    .setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER or Geofence.GEOFENCE_TRANSITION_EXIT)
+                    //.setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER or Geofence.GEOFENCE_TRANSITION_EXIT)
+                    .setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER)
 
                     // Create the geofence.
                     .build()
@@ -257,8 +257,18 @@ class BusStopsActivity : BaseActivity(), BusStopsView, OnCompleteListener<Void>,
             // for ActivityCompat#requestPermissions for more details.
             return
         }
-        mGeofencingClient!!.addGeofences(getGeofencingRequest(), getGeofencePendingIntent())
-            ?.addOnCompleteListener(this)
+       /* mGeofencingClient?.addGeofences(getGeofencingRequest(), geofencePendingIntent)
+            ?.addOnCompleteListener(this)*/
+
+        mGeofencingClient?.addGeofences(getGeofencingRequest(), geofencePendingIntent)?.run {
+            addOnSuccessListener {
+                Toast.makeText(this@BusStopsActivity,"geofences add success", Toast.LENGTH_SHORT).show()
+                populateGeofenceList()
+            }
+            addOnFailureListener {
+                Toast.makeText(this@BusStopsActivity,"Failed to add geofences",Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     /**
@@ -268,17 +278,12 @@ class BusStopsActivity : BaseActivity(), BusStopsView, OnCompleteListener<Void>,
      *
      * @return A PendingIntent for the IntentService that handles geofence transitions.
      */
-    private fun getGeofencePendingIntent(): PendingIntent {
-        // Reuse the PendingIntent if we already have it.
-        if (mGeofencePendingIntent != null) {
-            return mGeofencePendingIntent as PendingIntent
-        }
+
+    private val geofencePendingIntent: PendingIntent by lazy {
         val intent = Intent(this, GeofenceBroadcastReceiver::class.java)
         // We use FLAG_UPDATE_CURRENT so that we get the same pending intent back when calling
         // addGeofences() and removeGeofences().
-        mGeofencePendingIntent =
-            PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
-        return mGeofencePendingIntent as PendingIntent
+        PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
     }
 
     override fun onComplete(task: Task<Void>) {
